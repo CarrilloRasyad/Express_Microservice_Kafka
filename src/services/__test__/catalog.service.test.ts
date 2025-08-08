@@ -19,8 +19,20 @@ describe("catalogService", () => {
     describe("createProduct", () => {
         test("should create product", async() => {
             const service = new CatalogService(repository);
-            const result = await service.createProduct({});
-            expect(result).toMatchObject()
+            const reqBody = {
+                name: "Iphone",
+                description: "Ini handhphone terbaru",
+                stock: 100,
+                price: 1200,
+            };
+            const result = await service.createProduct({reqBody});
+            expect(result).toMatchObject({
+                id: expect.any(Number),
+                name: expect.any(String),
+                description: expect.any(String),
+                price: expect.any(Number),
+                stock: expect.any(Number),
+            })
         })
 
         test("should throw error with product already exists", () => {

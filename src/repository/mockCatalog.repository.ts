@@ -2,11 +2,12 @@ import { ICatalogRepository } from "../interface/catalogRepository.interface";
 import { Product } from "../models/product.model";
 
 export class MockCatalogRepository implements ICatalogRepository {
-    findStock(ids: number): Promise<Product[]> {
-        throw new Error("Method not implemented.");
-    }
     create(data: Product): Promise<Product> {
-        throw new Error("Method not implemented.");
+        const mockProduct = {
+            id: 123,
+            ...data
+        } as Product
+        return Promise.resolve(mockProduct);
     }
     update(data: Product): Promise<Product> {
         throw new Error("Method not implemented.");
@@ -18,6 +19,9 @@ export class MockCatalogRepository implements ICatalogRepository {
         throw new Error("Method not implemented.");
     }
     findOne(id: number): Promise<Product> {
+        throw new Error("Method not implemented.");
+    }
+    findStock(ids: number): Promise<Product[]> {
         throw new Error("Method not implemented.");
     }
 
