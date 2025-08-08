@@ -2,6 +2,9 @@ import { ICatalogRepository } from "../interface/catalogRepository.interface";
 import { Product } from "../models/product.model";
 
 export class MockCatalogRepository implements ICatalogRepository {
+    findStock(ids: number): Promise<Product[]> {
+        throw new Error("Method not implemented.");
+    }
     create(data: Product): Promise<Product> {
         throw new Error("Method not implemented.");
     }
