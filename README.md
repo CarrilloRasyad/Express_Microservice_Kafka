@@ -4,11 +4,11 @@
 ## TESTING WITH JEST
 - npm test
 
-## INSTALL express nodemon with typescript
+## INSTALL EXPRESS NODEMON AND TYPESCRIPT
 - npm install express nodemon typescript ts-node @types/express @types/node --save-dev
 - npm install -g typescript (akan menginstall typescript secara global)
 
-## RUNNING typescript (create file tsconfig.json)
+## RUNNING TYPESCRIPT (CREATE FILE TSCONFIG.JSON)
 - npx tsc --init
   
 
