@@ -143,6 +143,19 @@ describe("catalogService", () => {
             .mockImplementationOnce(() => Promise.reject(new Error("product does not exists")));
 
             await expect(service.getProduct(product.id!)).rejects.toThrow("product does not exists");
+        });
+    });
+
+    describe("deleteProduct", () => {
+        test("delete product by id", async() => {
+            const service = new CatalogService(repository);
+            const product = productFactory.build();
+            jest
+            .spyOn(repository, "delete")
+            .mockImplementationOnce(() => Promise.resolve(product));
+
+            const result = await service.deleteProduct(product.id!);
+            expect(result).toMatchObject(product);
         })
     })
 });
