@@ -152,10 +152,12 @@ describe("catalogService", () => {
             const product = productFactory.build();
             jest
             .spyOn(repository, "delete")
-            .mockImplementationOnce(() => Promise.resolve(product));
+            .mockImplementationOnce(() => Promise.resolve({id: product.id}));
 
             const result = await service.deleteProduct(product.id!);
-            expect(result).toMatchObject(product);
-        })
-    })
+            expect(result).toMatchObject({
+                id: product.id,
+            });
+        });
+    });
 });
