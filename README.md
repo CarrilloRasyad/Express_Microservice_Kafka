@@ -1,5 +1,5 @@
-### RUN SERVER
+## RUN SERVER
 - npm start
 
-### TESTING WITH JEST
+## TESTING WITH JEST
 npm test
