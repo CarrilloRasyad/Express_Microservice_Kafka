@@ -4,7 +4,7 @@ export interface ICatalogRepository {
     create(data: Product): Promise<Product>;
     update(data: Product): Promise<Product>;
     delete(id: any): Promise<{}>;
-    find(): Promise<Product[]>;
+    find(limit: number, offset: number): Promise<Product[]>;
     findOne(id: number): Promise<Product>;
     findStock(ids: number): Promise<Product[]>;
 }
