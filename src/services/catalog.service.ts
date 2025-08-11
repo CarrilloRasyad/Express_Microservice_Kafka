@@ -16,7 +16,10 @@ export class CatalogService {
         return data;
     }
 
-    updateProduct(input: any) {}
+    async updateProduct(input: any) {
+        const data = await this._repository.update(input);
+        return data
+    }
 
     getProducts(limit: number, offset: number) {}
     getProduct(id: number) {}

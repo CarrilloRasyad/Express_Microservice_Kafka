@@ -67,4 +67,22 @@ describe("catalogService", () => {
             await expect(service.createProduct(reqBody)).rejects.toThrow("product already exists");
         });
     });
+
+    describe("updateProduct", () => {
+        test("should update product", async() => {
+            const service = new CatalogService(repository);
+            const reqBody = mockProduct({
+                price: +faker.commerce.price(),
+                id: faker.number.int({min: 10, max: 1000}),
+            });
+            const result = await service.updateProduct(reqBody);
+            expect(result).toMatchObject({
+                id: expect.any(Number),
+                name: expect.any(String),
+                description: expect.any(String),
+                price: expect.any(Number),
+                stock: expect.any(Number),
+            });
+        });
+    });
 });
