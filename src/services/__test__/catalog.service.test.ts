@@ -100,14 +100,14 @@ describe("catalogService", () => {
         test("should get products by offset and limit", async() => {
             const service = new CatalogService(repository);
             const randomLimit = faker.number.int({min: 10, max: 50})
+            const products = productFactory.buildList(randomLimit);
+            jest
+             .spyOn(repository, "find")
+             .mockImplementationOnce(() => Promise.resolve(products)); 
             const result = await service.getProducts(randomLimit, 0);
 
             expect(result.length).toEqual(randomLimit);
-            expect(result).toMatchObject([
-                {
-
-                }
-            ])
+            expect(result).toMatchObject(products)
 
         });
 
