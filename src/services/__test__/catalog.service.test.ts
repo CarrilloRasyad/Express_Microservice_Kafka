@@ -85,7 +85,7 @@ describe("catalogService", () => {
             .spyOn(repository, 'update')
             .mockImplementationOnce(() => Promise.reject(new Error("product does not exists")));
 
-            await expect(service.updateProduct({})).rejects.toThrow("product does not exists");
+            await expect(service.updateProduct({})).rejects.toThrow("product does not exist");
         });
     });
 });
