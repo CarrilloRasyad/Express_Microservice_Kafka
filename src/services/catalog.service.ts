@@ -16,7 +16,6 @@ export class CatalogService {
     updateProduct(input: any) {}
 
     getProducts(limit: number, offset: number) {}
-
     getProduct(id: number) {}
 
     deleteProduct(id: number) {}

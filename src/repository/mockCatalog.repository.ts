@@ -6,7 +6,8 @@ export class MockCatalogRepository implements ICatalogRepository {
         const mockProduct = {
             id: 123,
             ...data
-        } as Product
+        } as Product;
+
         return Promise.resolve(mockProduct);
     }
     update(data: Product): Promise<Product> {
