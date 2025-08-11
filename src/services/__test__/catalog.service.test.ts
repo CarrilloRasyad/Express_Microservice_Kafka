@@ -35,7 +35,7 @@ describe("catalogService", () => {
 
     describe("createProduct", () => {
         // TESTING create product
-        test("should create product", async () => {
+        test("create product", async () => {
             const service = new CatalogService(repository);
             const reqBody = mockProduct({
                 price: +faker.commerce.price(),
@@ -50,7 +50,7 @@ describe("catalogService", () => {
             });
         });
         // TESTING error unable to create product
-        test("should throw error with unable to create product", async() => {
+        test("throw error with unable to create product", async() => {
             const service = new CatalogService(repository);
             const reqBody = mockProduct({
                 price: +faker.commerce.price()
@@ -62,7 +62,7 @@ describe("catalogService", () => {
             await expect(service.createProduct(reqBody)).rejects.toThrow("unable to create product");
         });
         // TESTING
-        test("should throw error with product already exists ", async() => {
+        test("throw error with product already exists ", async() => {
             const service = new CatalogService(repository);
             const reqBody = mockProduct({
                 price: +faker.commerce.price()
@@ -76,7 +76,7 @@ describe("catalogService", () => {
     });
 
     describe("updateProduct", () => {
-        test("should update product", async() => {
+        test("update product", async() => {
             const service = new CatalogService(repository);
             const reqBody = mockProduct({
                 price: +faker.commerce.price(),
@@ -86,7 +86,7 @@ describe("catalogService", () => {
             expect(result).toMatchObject(reqBody);
         });
 
-        test("should throw error with product does not exists", async() => {
+        test("throw error with product does not exists", async() => {
             const service = new CatalogService(repository);
             jest
             .spyOn(repository, "update")
@@ -97,7 +97,7 @@ describe("catalogService", () => {
     });
 
     describe("getProducts", () => {
-        test("should get products by offset and limit", async() => {
+        test("get products by offset and limit", async() => {
             const service = new CatalogService(repository);
             const randomLimit = faker.number.int({min: 10, max: 50})
             const products = productFactory.buildList(randomLimit);
@@ -111,7 +111,7 @@ describe("catalogService", () => {
 
         });
 
-        test("should throw error with products does not exists", async() => {
+        test("throw error with products does not exists", async() => {
             const service = new CatalogService(repository);
             jest
             .spyOn(repository, "find")
@@ -124,7 +124,7 @@ describe("catalogService", () => {
     });
 
     describe("getProduct", () => {
-        test("should get product by id", async() => {
+        test("get product by id", async() => {
             const service = new CatalogService(repository);
             const product = productFactory.build();
             jest
@@ -134,5 +134,15 @@ describe("catalogService", () => {
             const result = await service.getProduct(product.id!);
             expect(result).toMatchObject(product);
         });
+
+        test("throw error product does not exists", async() => {
+            const service = new CatalogService(repository);
+            const product = productFactory.build();
+            jest
+            .spyOn(repository, "findOne")
+            .mockImplementationOnce(() => Promise.reject(new Error("product does not exists")));
+
+            await expect(service.getProduct(product.id!)).rejects.toThrow("product does not exists");
+        })
     })
 });

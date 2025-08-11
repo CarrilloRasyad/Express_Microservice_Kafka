@@ -21,7 +21,7 @@ export class CatalogService {
         // emit event to update record in Elastic Search
         return data;
     }
-
+    // find list products and record in Elastic Search
     async getProducts(limit: number, offset: number) {
         const products = await this._repository.find(limit, offset);
         return products;
