@@ -2,8 +2,10 @@ import { ICatalogRepository } from "../../interface/catalogRepository.interface"
 import { Product } from "../../models/product.model";
 import { MockCatalogRepository } from "../../repository/mockCatalog.repository";
 import { CatalogService } from "../catalog.service";
-import {faker} from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
+import { Factory } from "rosie";
 
+const productFactory = new Factory
 
 const mockProduct = (rest: any) => {
     return {
@@ -87,5 +89,22 @@ describe("catalogService", () => {
 
             await expect(service.updateProduct({})).rejects.toThrow("product does not exists");
         });
+    });
+
+    describe("getProducts", () => {
+        test("should get products by offset and limit", async() => {
+            const service = new CatalogService(repository);
+            const randomLimit = faker.number.int({min: 10, max: 50})
+            const result = await service.getProducts(randomLimit, 0);
+
+            expect(result.length).toEqual(randomLimit);
+            expect(result).toMatchObject([
+                {
+
+                }
+            ])
+
+        });
+
     });
 });
