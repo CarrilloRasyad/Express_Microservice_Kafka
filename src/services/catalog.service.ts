@@ -26,7 +26,10 @@ export class CatalogService {
         const products = await this._repository.find(limit, offset);
         return products;
     }
-    getProduct(id: number) {}
+    async getProduct(id: number) {
+        const product = await this._repository.findOne(id);
+        return product;
+    }
 
     deleteProduct(id: number) {}
 }
