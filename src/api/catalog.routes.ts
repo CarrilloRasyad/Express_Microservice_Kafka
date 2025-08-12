@@ -1,22 +1,16 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express, { NextFunction, Request, response, Response } from 'express';
+import { CatalogService } from '../services/catalog.service';
+import { CatalogRepository } from '../repository/catalog.repository';
 
 const router = express.Router()
 
+export const catalogService = new CatalogService( new CatalogRepository() )
+
 router.post("/products", 
     async(req: Request, res: Response, next: NextFunction) => {
-    return res.status(201).json({})
+    const data = await catalogService.createProduct(req.body);
+
+    return res.status(201).json(data);
 })
-
-// router.patch("/product", (req,res) => {
-// return res.json({});
-// })
-
-// router.delete("/", (req,res) => {
-// return res.json({});
-// })
-
-// router.get("/", (req,res) => {
-// return res.json({});
-// })
 
 export default router;
