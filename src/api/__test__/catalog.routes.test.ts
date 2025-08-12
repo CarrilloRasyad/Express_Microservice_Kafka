@@ -40,8 +40,10 @@ describe("Catalog Routes", () => {
              .post("/products")
              .send({...reqBody, name: ""})
              .set("Accept", "application/json");
+            // isi dari method toBe harus sama dengan isi expect yang di ambil dari response status
             expect(response.status).toBe(400);
-            expect(response.body).toEqual("name must be field can't empty");
+            // isi dari method toEqual harus sama dengan isi expect yang di ambil dari response body
+            expect(response.body).toEqual("name should not be empty");
         });
     });
 });
