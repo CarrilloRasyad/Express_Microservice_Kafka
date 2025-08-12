@@ -35,15 +35,31 @@ describe("Catalog Routes", () => {
         });
         // BAD REQUEST HTTP REQUEST 400
         test("response with validation error 400", async() => {
-            const reqBody = mockRequest()
+            const reqBody = mockRequest();
             const response = await request(app)
              .post("/products")
              .send({...reqBody, name: ""})
              .set("Accept", "application/json");
+            // console.log(response);
             // isi dari method toBe harus sama dengan isi expect yang di ambil dari response status
             expect(response.status).toBe(400);
             // isi dari method toEqual harus sama dengan isi expect yang di ambil dari response body
             expect(response.body).toEqual("name should not be empty");
         });
+
+        test("response with an internal server error 500", async() => {
+            const reqBody = mockRequest();
+            jest
+             .spyOn(catalogService, "createProduct")
+             .mockImplementationOnce(() => Promise.reject(new Error("error occurred on create product")));
+            const response = await request(app)
+             .post("/products")
+             .send(reqBody)
+             .set("Accept", "application/json");
+
+            expect(response.status).toBe(500);
+            expect(response.body).toEqual("error occurred on create product");
+            
+        })
     });
 });
