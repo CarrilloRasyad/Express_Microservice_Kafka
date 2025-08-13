@@ -98,19 +98,20 @@ describe("Catalog Routes", () => {
             expect(response.body).toEqual("price must not be less than 1");
         });
 
-        // test("response with an internal server error 500", async() => {
-        //     const reqBody = mockRequest();
-        //     jest
-        //      .spyOn(catalogService, "createProduct")
-        //      .mockImplementationOnce(() => Promise.reject(new Error("error occurred on create product")));
-        //     const response = await request(app)
-        //      .patch("/products")
-        //      .send(reqBody)
-        //      .set("Accept", "application/json");
+        test.only("response with an internal server error 500", async() => {
+            const product = ProductFactory.build();
+            const reqBody = mockRequest();
+            jest
+             .spyOn(catalogService, "updateProduct")
+             .mockImplementationOnce(() => Promise.reject(new Error("unable to update product")));
+            const response = await request(app)
+             .patch(`/products/${product.id}`)
+             .send(reqBody)
+             .set("Accept", "application/json");
 
-        //     expect(response.status).toBe(500);
-        //     expect(response.body).toEqual("error occurred on create product");
+            expect(response.status).toBe(500);
+            expect(response.body).toEqual("unable to update product");
             
-        // })
+        });
     });
 });

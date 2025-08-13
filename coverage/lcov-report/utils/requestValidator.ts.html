@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">77.41% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>24/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">77.41% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>24/31</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,33 +97,33 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import { ClassConstructor, plainToClass } from "class-transformer";
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ClassConstructor, plainToClass } from "class-transformer";
 import {validate, ValidationError} from "class-validator";
 &nbsp;
 const validationError = async(input: any): Promise&lt;ValidationError[] | false&gt; =&gt; {
@@ -131,9 +131,9 @@ const validationError = async(input: any): Promise&lt;ValidationError[] | false&
         validationError: {target: true},
     });
 &nbsp;
-    if(errors.length) {
-        return errors;
-    }
+    if(errors.length) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return errors;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
     return false;
 };
@@ -145,12 +145,12 @@ export const RequestValidator = async&lt;T&gt;(
     const input = plainToClass(type, body);
 &nbsp;
     const errors = await validationError(input);
-    if(errors) {
-        const errorMessage = errors.map((error: ValidationError) =&gt; 
-            (Object as any).values(error.constraints)
-        ).join(", ");
-        return {errors: errorMessage, input};
-    }
+    if(errors) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        const errorMessage = errors.map((error: ValidationError) =&gt; </span>
+<span class="cstat-no" title="statement not covered" >            (Object as any).values(error.constraints)</span>
+<span class="cstat-no" title="statement not covered" >        ).join(", ");</span>
+<span class="cstat-no" title="statement not covered" >        return {errors: errorMessage, input};</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
     return {errors: false, input};
 };</pre></td></tr></table></pre>
@@ -160,7 +160,7 @@ export const RequestValidator = async&lt;T&gt;(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-13T02:35:19.474Z
+                at 2025-08-13T02:42:24.374Z
             </div>
         <script src="../prettify.js"></script>
         <script>

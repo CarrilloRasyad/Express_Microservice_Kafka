@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.12% </span>
+                <span class="strong">46.34% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/41</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">92.3% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>12/13</span>
+                <span class='fraction'>19/41</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.12% </span>
+                <span class="strong">16.66% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/6</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">46.34% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/41</span>
+                <span class='fraction'>19/41</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -110,39 +110,39 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ICatalogRepository } from "../interface/catalogRepository.interface";
 &nbsp;
 export class CatalogService {
@@ -153,36 +153,36 @@ export class CatalogService {
         this._repository = repository;
     }
 &nbsp;
-    async createProduct(input: any) {
-        const data = await this._repository.create(input);
-        if(!data.id) {
-            throw new Error("unable to create product");
-        }
-        return data;
-    }
+<span class="fstat-no" title="function not covered" >    async createProduct(input: any) {</span>
+<span class="cstat-no" title="statement not covered" >        const data = await this._repository.create(input);</span>
+<span class="cstat-no" title="statement not covered" >        if(!data.id) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error("unable to create product");</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >        return data;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
-    async updateProduct(input: any) {
-        const data = await this._repository.update(input);
-        if(!data.id) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="fstat-no" title="function not covered" >    async updateProduct(input: any) {</span>
+<span class="cstat-no" title="statement not covered" >        const data = await this._repository.update(input);</span>
+<span class="cstat-no" title="statement not covered" >        if(!data.id) {</span>
 <span class="cstat-no" title="statement not covered" >            throw new Error("unable to update product");</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-        // emit event to update record in Elastic Search
-        return data;
-    }
+<span class="cstat-no" title="statement not covered" >        // emit event to update record in Elastic Search</span>
+<span class="cstat-no" title="statement not covered" >        return data;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
     // find list products and record in Elastic Search
-    async getProducts(limit: number, offset: number) {
-        const products = await this._repository.find(limit, offset);
-        return products;
-    }
-    async getProduct(id: number) {
-        const product = await this._repository.findOne(id);
-        return product;
-    }
+<span class="fstat-no" title="function not covered" >    async getProducts(limit: number, offset: number) {</span>
+<span class="cstat-no" title="statement not covered" >        const products = await this._repository.find(limit, offset);</span>
+<span class="cstat-no" title="statement not covered" >        return products;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="fstat-no" title="function not covered" >    async getProduct(id: number) {</span>
+<span class="cstat-no" title="statement not covered" >        const product = await this._repository.findOne(id);</span>
+<span class="cstat-no" title="statement not covered" >        return product;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
-    async deleteProduct(id: number) {
-        const product = await this._repository.delete(id);
-        return product;
-    }
+<span class="fstat-no" title="function not covered" >    async deleteProduct(id: number) {</span>
+<span class="cstat-no" title="statement not covered" >        const product = await this._repository.delete(id);</span>
+<span class="cstat-no" title="statement not covered" >        return product;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -190,7 +190,7 @@ export class CatalogService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-13T02:35:19.474Z
+                at 2025-08-13T02:42:24.374Z
             </div>
         <script src="../prettify.js"></script>
         <script>
