@@ -7,3 +7,19 @@ Content-Type: application/json
     "price": 100,
     "stock": 10
 }
+### GET PRODUCTS
+GET http://localhost:3000/products?limit=5&offset=2
+Content-Type: application/json
+### GET PRODUCTS BY ID
+GET http://localhost:3000/products/968
+Content-Type: application/json
+### PATCH PRODUCTS BY ID
+PATCH http://localhost:3000/products/968
+Content-Type: application/json
+
+{
+    "stock": 10
+}
+### DELETE PRODUCTS BY ID 
+DELETE http://localhost:3000/products/968
+Content-Type: application/json

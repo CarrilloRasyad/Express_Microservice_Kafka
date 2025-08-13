@@ -29,8 +29,7 @@ router.post("/products",
             return res.status(500).json(err.message);
         }
 
-    }
-);
+});
 
 router.patch("/products/:id", 
     async(req: Request, res: Response, next: NextFunction) => {
@@ -51,8 +50,7 @@ router.patch("/products/:id",
             const err = error as Error;
             return res.status(500).json(err.message);
         }
-    }
-)
+});
 
 router.get("/products", 
     async(req: Request, res: Response, next: NextFunction) => {
