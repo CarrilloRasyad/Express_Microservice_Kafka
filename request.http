@@ -1,6 +1,9 @@
-POST http://localhost:3000/product
+POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-    "name": "product name"
+    "name": "product name",
+    "description": "apa aja description",
+    "price": 100,
+    "stock": 10
 }
