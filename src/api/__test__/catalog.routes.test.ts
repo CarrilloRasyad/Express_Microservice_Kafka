@@ -130,8 +130,8 @@ describe("Catalog Routes", () => {
         });
     });
 
-    describe("GET /products:id", () => {
-        test.only("response get product with id", async() => {
+    describe("GET /products/:id", () => {
+        test("response get product with id", async() => {
             const product = ProductFactory.build();
             jest
              .spyOn(catalogService, "getProduct")
@@ -142,6 +142,20 @@ describe("Catalog Routes", () => {
              .set("Accept", "application/json");
             expect(response.status).toBe(200);
             expect(response.body).toEqual(product);
+        });
+    });
+
+    describe("DELETE /products/:id", () => {
+        test("response delete product by id", async() => {
+            const product = ProductFactory.build();
+            jest
+             .spyOn(catalogService, "deleteProduct")
+             .mockImplementationOnce(() => Promise.resolve({id: product.id}))
+            const response = await request(app)
+             .delete(`/products/${product.id}`)
+             .set("Accept", "application/json");
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual({id: product.id});
         });
     });
 });
