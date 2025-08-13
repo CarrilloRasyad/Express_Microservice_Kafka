@@ -82,12 +82,12 @@ describe("Catalog Routes", () => {
             expect(response.body).toEqual(product);
         });
        
-        test("response with validation error 400", async() => {
+        test.only("response with validation error 400", async() => {
             const product = ProductFactory.build();
             const reqBody = {
                 name: product.name,
-                price: -1,
-                stock: product.stock,
+                price: product.price,
+                stock: "handphone",
             };
             const response = await request(app)
              .patch(`/products/${product.id}`)
@@ -95,10 +95,10 @@ describe("Catalog Routes", () => {
              .set("Accept", "application/json");
             // console.log(response);
             expect(response.status).toBe(400);
-            expect(response.body).toEqual("price must not be less than 1");
+            expect(response.body).toEqual("stock must be a number conforming to the specified constraints");
         });
 
-        test.only("response with an internal server error 500", async() => {
+        test("response with an internal server error 500", async() => {
             const product = ProductFactory.build();
             const reqBody = mockRequest();
             jest
