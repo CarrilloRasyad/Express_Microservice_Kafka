@@ -82,7 +82,7 @@ describe("Catalog Routes", () => {
             expect(response.body).toEqual(product);
         });
        
-        test.only("response with validation error 400", async() => {
+        test("response with validation error 400", async() => {
             const product = ProductFactory.build();
             const reqBody = {
                 name: product.name,
