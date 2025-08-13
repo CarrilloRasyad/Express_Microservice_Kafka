@@ -63,7 +63,7 @@ describe("Catalog Routes", () => {
         })
     });
     describe("PATCH /products/:id", () => {
-        test.only("update product successfully", async() => {
+        test("update product successfully", async() => {
             const product = ProductFactory.build()
             const reqBody = {
                 name: product.name,
@@ -82,16 +82,21 @@ describe("Catalog Routes", () => {
             expect(response.body).toEqual(product);
         });
        
-        // test("response with validation error 400", async() => {
-        //     const reqBody = mockRequest();
-        //     const response = await request(app)
-        //      .patch("/products")
-        //      .send(reqBody)
-        //      .set("Accept", "application/json");
-        //     // console.log(response);
-        //     expect(response.status).toBe(400);
-        //     expect(response.body).toEqual("name should not be empty");
-        // });
+        test.only("response with validation error 400", async() => {
+            const product = ProductFactory.build();
+            const reqBody = {
+                name: product.name,
+                price: -1,
+                stock: product.stock,
+            };
+            const response = await request(app)
+             .patch(`/products/${product.id}`)
+             .send({...reqBody})
+             .set("Accept", "application/json");
+            // console.log(response);
+            expect(response.status).toBe(400);
+            expect(response.body).toEqual("price must not be less than 1");
+        });
 
         // test("response with an internal server error 500", async() => {
         //     const reqBody = mockRequest();
@@ -99,7 +104,7 @@ describe("Catalog Routes", () => {
         //      .spyOn(catalogService, "createProduct")
         //      .mockImplementationOnce(() => Promise.reject(new Error("error occurred on create product")));
         //     const response = await request(app)
-        //      .post("/products")
+        //      .patch("/products")
         //      .send(reqBody)
         //      .set("Accept", "application/json");
 

@@ -37,9 +37,9 @@ router.patch("/products/:id",
                 UpdateProductRequest,
                 req.body
             );
-            const id = parseInt(req.params.id) || 0
+            const id = parseInt(req.params.id) || 0;
 
-            if(errors) return res.status(400).json(input);
+            if(errors) return res.status(400).json(errors);
 
             const data = await catalogService.updateProduct({id, ...input});
             return res.status(200).json(data);
