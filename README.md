@@ -1,5 +1,6 @@
 ## RUN SERVER
 - npm start
+- Server running on port 3000 (you can change the configuration in server.ts)
 
 ## TESTING WITH JEST
 - npm test
@@ -10,6 +11,9 @@
 
 ## RUNNING TYPESCRIPT (CREATE FILE TSCONFIG.JSON)
 - npx tsc --init
-  
+
+## TESTING HTTP REQUEST
+- make file request.http for testing REST-API
+- REST-API (Get, Post, Patch/Put, Delete)
 
 
