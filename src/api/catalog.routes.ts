@@ -1,10 +1,13 @@
-import express, { NextFunction, Request, response, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import { CatalogService } from '../services/catalog.service';
 import { CatalogRepository } from '../repository/catalog.repository';
 import { RequestValidator } from '../utils/requestValidator';
 import { CreateProductRequest, UpdateProductRequest } from '../dto/product.dto';
 
-const router = express.Router()
+// clean code, dan lebih bagus menggunakan method Router dari express
+const router = express.Router();
+// const app = express();
+
 
 export const catalogService = new CatalogService( new CatalogRepository() )
 
