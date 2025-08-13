@@ -18,6 +18,7 @@ export class CatalogService {
 
     async updateProduct(input: any) {
         const data = await this._repository.update(input);
+        // jika datanya tidak dengan id tersebut tidak ada, maka user tidak bisa update product
         if(!data.id) {
             throw new Error("unable to update product");
         }

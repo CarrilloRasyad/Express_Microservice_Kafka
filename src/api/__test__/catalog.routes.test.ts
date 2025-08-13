@@ -82,7 +82,7 @@ describe("Catalog Routes", () => {
             expect(response.body).toEqual(product);
         });
        
-        test.only("response with validation error 400", async() => {
+        test("response with validation error 400", async() => {
             const product = ProductFactory.build();
             const reqBody = {
                 name: product.name,
@@ -114,4 +114,19 @@ describe("Catalog Routes", () => {
             
         });
     });
+
+    describe("GET /products?limit=0&offset=0", () => {
+        test.only("response to get all products", async() => {
+            const randomLimit = faker.number.int({min: 10, max: 1000});
+            const product = ProductFactory.buildList(randomLimit);
+            jest
+             .spyOn(catalogService, "getProducts")
+             .mockImplementationOnce(() => Promise.resolve(product));
+            const response = await request(app)
+             .get(`/products?limit=${randomLimit}&offset=0`)
+             .set("Accept", "application/json");
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual(product);
+        })
+    })
 });
