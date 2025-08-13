@@ -65,4 +65,15 @@ router.get("/products",
 
 });
 
+router.get("/products/:id", 
+    async(req: Request, res: Response, next: NextFunction) => {
+        const id = parseInt(req.params.id) || 0;
+        try {
+            const data = await catalogService.getProduct(id);
+            return res.status(200).json(data)
+        } catch (error) {
+            return next(error);
+        }   
+});
+
 export default router;
