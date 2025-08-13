@@ -116,7 +116,7 @@ describe("Catalog Routes", () => {
     });
 
     describe("GET /products?limit=0&offset=0", () => {
-        test("response to get all products", async() => {
+        test("successfully response to get all products", async() => {
             const randomLimit = faker.number.int({min: 10, max: 1000});
             const product = ProductFactory.buildList(randomLimit);
             jest
@@ -131,7 +131,7 @@ describe("Catalog Routes", () => {
     });
 
     describe("GET /products/:id", () => {
-        test("response get product with id", async() => {
+        test("successfully response get product with id", async() => {
             const product = ProductFactory.build();
             jest
              .spyOn(catalogService, "getProduct")
@@ -146,7 +146,7 @@ describe("Catalog Routes", () => {
     });
 
     describe("DELETE /products/:id", () => {
-        test("response delete product by id", async() => {
+        test("successfully response delete product by id", async() => {
             const product = ProductFactory.build();
             jest
              .spyOn(catalogService, "deleteProduct")

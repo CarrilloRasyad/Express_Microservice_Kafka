@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.35% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/31</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.35% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/31</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,70 +97,70 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ClassConstructor, plainToClass } from "class-transformer";
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span></td><td class="text"><pre class="prettyprint lang-js">import { ClassConstructor, plainToClass } from "class-transformer";
 import {validate, ValidationError} from "class-validator";
 &nbsp;
-const validationError = <span class="fstat-no" title="function not covered" >async(input: any): Promise&lt;ValidationError[] | false&gt; =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const errors = await validate(input, {</span>
-<span class="cstat-no" title="statement not covered" >        validationError: {target: true},</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if(errors.length) {</span>
-<span class="cstat-no" title="statement not covered" >        return errors;</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return false;</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+const validationError = async(input: any): Promise&lt;ValidationError[] | false&gt; =&gt; {
+    const errors = await validate(input, {
+        validationError: {target: true},
+    });
 &nbsp;
-export const RequestValidator = <span class="fstat-no" title="function not covered" >async&lt;T&gt;(</span>
-<span class="cstat-no" title="statement not covered" >    type: ClassConstructor&lt;T&gt;,</span>
-<span class="cstat-no" title="statement not covered" >    body: any</span>
-<span class="cstat-no" title="statement not covered" >): Promise&lt;{ errors: boolean | string; input: T }&gt; =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const input = plainToClass(type, body);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const errors = await validationError(input);</span>
-<span class="cstat-no" title="statement not covered" >    if(errors) {</span>
-<span class="cstat-no" title="statement not covered" >        const errorMessage = errors.map((error: ValidationError) =&gt; </span>
-<span class="cstat-no" title="statement not covered" >            (Object as any).values(error.constraints)</span>
-<span class="cstat-no" title="statement not covered" >        ).join(", ");</span>
-<span class="cstat-no" title="statement not covered" >        return {errors: errorMessage, input};</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return {errors: false, input};</span>
-<span class="cstat-no" title="statement not covered" >};</span></pre></td></tr></table></pre>
+    if(errors.length) {
+        return errors;
+    }
+&nbsp;
+    return false;
+};
+&nbsp;
+export const RequestValidator = async&lt;T&gt;(
+    type: ClassConstructor&lt;T&gt;,
+    body: any
+): Promise&lt;{ errors: boolean | string; input: T }&gt; =&gt; {
+    const input = plainToClass(type, body);
+&nbsp;
+    const errors = await validationError(input);
+    if(errors) {
+        const errorMessage = errors.map((error: ValidationError) =&gt; 
+            (Object as any).values(error.constraints)
+        ).join(", ");
+        return {errors: errorMessage, input};
+    }
+&nbsp;
+    return {errors: false, input};
+};</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-13T06:28:52.884Z
+                at 2025-08-13T06:35:37.281Z
             </div>
         <script src="../prettify.js"></script>
         <script>
