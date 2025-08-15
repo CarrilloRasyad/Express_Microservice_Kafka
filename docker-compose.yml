@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  catalog_db_server:
+    image: "postgres:17.0"
+    ports:
+      - "5432:5432"
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: laravel
+      POSTGRES_DB: catalog_service
+    volumes:
+      - ./db-data/catalog_db_server/:/var/lib/postgresql/data
+  order_db_server:
+    image: "postgres:17.0"
+    ports:
+      - "5433:5432"
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: laravel
+      POSTGRES_DB: order_service
+    volumes:
+      - ./db-data/order_db_server/:/var/lib/postgresql/data
+  user_db_server:
+    image: "postgres:17.0"
+    ports:
+      - "5442:5432"
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: laravel
+      POSTGRES_DB: user_service
+    volumes:
+      - ./db-data/user_db_server/:/var/lib/postgresql/data
