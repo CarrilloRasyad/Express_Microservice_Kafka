@@ -2,24 +2,25 @@ POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-    "name": "product name",
-    "description": "apa aja description",
+    "name": "Iphone 15",
+    "description": "ini handphone merk apple",
     "price": 100,
     "stock": 10
 }
 ### GET PRODUCTS
-GET http://localhost:3000/products?limit=5&offset=2
+GET http://localhost:3000/products?limit=2&offset=0
 Content-Type: application/json
 ### GET PRODUCTS BY ID
-GET http://localhost:3000/products/968
+GET http://localhost:3000/products/2
 Content-Type: application/json
 ### PATCH PRODUCTS BY ID
-PATCH http://localhost:3000/products/968
+PATCH http://localhost:3000/products/2
 Content-Type: application/json
 
 {
-    "stock": 10
+    "price": 2000,
+    "stock": 100
 }
 ### DELETE PRODUCTS BY ID 
-DELETE http://localhost:3000/products/968
+DELETE http://localhost:3000/products/1
 Content-Type: application/json
