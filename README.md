@@ -13,7 +13,7 @@
 - npm install -g typescript (akan menginstall typescript secara global)
 
 ## RUNNING TYPESCRIPT (CREATE FILE TSCONFIG.JSON)
-- npx tsc --init
+- npx tsc --init or npx create-jest
 
 ## TESTING HTTP REQUEST
 - make file request.http for testing REST-API
