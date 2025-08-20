@@ -5,10 +5,13 @@ POST http://localhost:9000/order
 }
 
 ### GET DATA ORDER
-GET http://localhost:9000/
+GET http://localhost:9000/order
 
 ### UPDATE DATA ORDER
 PATCH http://localhost:9000/order/1
 {
     
 }
+
+### GET DATA CART
+GET http://localhost:9000/cart
