@@ -8,4 +8,4 @@ export type CartRepositoryType = {
     find: Find;
     update: Update;
     delete: Delete;
-}
+};
