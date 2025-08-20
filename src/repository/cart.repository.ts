@@ -8,7 +8,10 @@ const createCart = async (input: any): Promise<{}> => {
 };
 
 const findCart = async (input: any): Promise<{}> => {
-    return Promise.resolve({});
+    return Promise.resolve({
+        message: "fake response get cart from repo",
+        input
+    });
 };
 
 const updateCart = async (input: any): Promise<{}> => {
