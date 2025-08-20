@@ -1,7 +1,10 @@
 import { CartRepositoryType } from "../types/repository.type";
 
 const createCart = async (input: any): Promise<{}> => {
-    return Promise.resolve({});
+    return Promise.resolve({ 
+        message: "fake response from cart repo",
+        input,
+    });
 };
 
 const findCart = async (input: any): Promise<{}> => {

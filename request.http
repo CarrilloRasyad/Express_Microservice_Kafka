@@ -1,7 +1,10 @@
 ### CREATE NEW ORDER
 POST http://localhost:9000/order
-{
+Content-Type: 'application/json
 
+{
+    "item": "smart phone",
+    "price": 1200
 }
 
 ### GET DATA ORDER
@@ -15,3 +18,12 @@ PATCH http://localhost:9000/order/1
 
 ### GET DATA CART
 GET http://localhost:9000/cart
+
+### POST DATA CART
+POST http://localhost:9000/cart
+Content-Type: "application/json"
+
+{
+    "item": "smart phone",
+    "price": 1200
+}
