@@ -1,6 +1,6 @@
 ## RUN SERVER
 - npm start
-- Server running on port 3000 (you can change the configuration in server.ts)
+- Server running on port 9000 (you can change the configuration in server.ts)
 
 ## INSTALL CORS FOR ROUTE
 - npm install cors @types/cors --save-dev
