@@ -1,6 +1,6 @@
 ### CREATE NEW ORDER
 POST http://localhost:9000/order
-Content-Type: 'application/json
+Content-Type: "application/json"
 
 {
     "item": "smart phone",

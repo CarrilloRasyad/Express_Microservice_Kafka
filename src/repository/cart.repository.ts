@@ -17,11 +17,11 @@ const updateCart = async (input: any): Promise<{}> => {
 
 const deleteCart = async (input:any): Promise<{}> => {
     return Promise.resolve({});
-}
+};
 
 export const CartRepository: CartRepositoryType = {
     create: createCart,
     find: findCart,
     update: updateCart,
     delete: deleteCart
-} 
+};
