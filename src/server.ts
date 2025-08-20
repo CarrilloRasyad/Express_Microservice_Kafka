@@ -13,5 +13,5 @@ export const StartServer = async() => {
 };
 
 StartServer().then(() => {
-    console.log('Server nyala');
+    console.log('Server order service nyala');
 })
