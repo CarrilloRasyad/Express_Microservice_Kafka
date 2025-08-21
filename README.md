@@ -24,4 +24,5 @@
 - npm i -D drizzle-kit tsx @types/pg
 
 ## FLOW PENGERJAAN PROJECT
-![flow project](https://github.com/user-attachments/assets/5bfd9f15-f912-4c64-8a5c-568f3188dff9)
+
+![flows projects](https://github.com/user-attachments/assets/fcd14865-afaf-4d4c-9915-4db50ce352b1)
