@@ -1,0 +1,13 @@
+import { InferInsertModel, InferSelectModel } from "drizzle-orm";
+import { integer, pgTable, timestamp, serial, numeric, varchar } from "drizzle-orm/pg-core";
+
+
+export const carts = pgTable("carts", {
+    id: serial("id").primaryKey(),
+    customerId: integer("customer_id").notNull().unique(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+    updatedAt: timestamp("udpated_at").notNull().defaultNow()
+});
+
+export type Cart = InferSelectModel<typeof carts>;
+export type NewCart = InferInsertModel<typeof carts>;
