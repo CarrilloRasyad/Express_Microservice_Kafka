@@ -19,12 +19,9 @@
 - make file request.http for testing REST-API
 - REST-API (Get, Post, Patch/Put, Delete)
 
-## INSTALL PRISMA PACKAGE
-- npm install prisma --save-dev
-
-## PRISMA MIGRATE TO DB
-- npx prisma migrate dev -n init
-
+## INSTALL DRIZZLE PACKAGE (USE NPM)
+- npm i drizzle-orm pg dotenv
+- npm i -D drizzle-kit tsx @types/pg
 
 ## FLOW PENGERJAAN PROJECT
 ![flow project](https://github.com/user-attachments/assets/5bfd9f15-f912-4c64-8a5c-568f3188dff9)
