@@ -7,7 +7,7 @@
     "test": "jest",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:migrate": "tsx ./migrations.ts",
+    "db:migrate": "tsx ./migration.ts",
     "db:studio": "drizzle-kit studio --port 6000"
   },
   "keywords": [],
