@@ -2,10 +2,8 @@ import { CartRepositoryType } from "../types/repository.type";
 // import { drizzle } from 'drizzle-orm/node-postgres';
 
 // Connect database with drizzle
-const db = drizzle(process.env.DATABASE_URL!);
 
 const createCart = async (input: any): Promise<{}> => {
-    db.connect();
     return Promise.resolve({ 
         message: "fake response create from cart repo",
         input
