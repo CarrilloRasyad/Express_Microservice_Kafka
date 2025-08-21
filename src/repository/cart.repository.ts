@@ -1,9 +1,14 @@
 import { CartRepositoryType } from "../types/repository.type";
+// import { drizzle } from 'drizzle-orm/node-postgres';
+
+// Connect database with drizzle
+const db = drizzle(process.env.DATABASE_URL!);
 
 const createCart = async (input: any): Promise<{}> => {
+    db.connect();
     return Promise.resolve({ 
-        message: "fake response from cart repo",
-        input,
+        message: "fake response create from cart repo",
+        input
     });
 };
 
@@ -15,11 +20,17 @@ const findCart = async (input: any): Promise<{}> => {
 };
 
 const updateCart = async (input: any): Promise<{}> => {
-    return Promise.resolve({});
+    return Promise.resolve({
+        message: "fake response update cart from repo",
+        input
+    });
 };
 
 const deleteCart = async (input:any): Promise<{}> => {
-    return Promise.resolve({});
+    return Promise.resolve({
+        message: "fake response delete cart from repo",
+        input
+    });
 };
 
 export const CartRepository: CartRepositoryType = {
