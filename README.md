@@ -22,4 +22,6 @@
 ## PRISMA MIGRATE TO DB
 - npx prisma migrate dev -n init
 
+## USE CASE CATALOG SERVICE AND ORDER SERVICE
 
+![use case catalog dan order](https://github.com/user-attachments/assets/562d146b-561b-471e-b052-a8e849ce926e)
