@@ -6,8 +6,8 @@ export const carts = pgTable("carts", {
     id: serial("id").primaryKey(),
     customerId: integer("customer_id").notNull().unique(),
     createdAt: timestamp("created_at").notNull().defaultNow(),
-    updatedAt: timestamp("udpated_at").notNull().defaultNow()
+    updatedAt: timestamp("updated_at").notNull().defaultNow()
 });
 
 export type Cart = InferSelectModel<typeof carts>;
-export type NewCart = InferInsertModel<typeof carts>;
+// export type NewCart = InferInsertModel<typeof carts>;
