@@ -26,3 +26,7 @@
 ## FLOW PENGERJAAN PROJECT
 
 ![flows projects](https://github.com/user-attachments/assets/fcd14865-afaf-4d4c-9915-4db50ce352b1)
+
+## USE CASE CATALOG SERVICE AND ORDER SERVICE
+
+![use case catalog dan order](https://github.com/user-attachments/assets/19a0ed21-960e-4f08-a053-d8ebc8ddc463)
