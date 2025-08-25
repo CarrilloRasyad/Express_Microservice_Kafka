@@ -1,17 +1,18 @@
 import expressApp from './expressApp'
+import { logger } from './utils';
 
 const PORT = process.env.PORT || 3000;
 export const StartServer = async() => {
     expressApp.listen(PORT, () => {
-        console.log(`Aplikasi berjalan di port: ${PORT}`);
+        logger.info(`Aplikasi berjalan di port: ${PORT}`);
     });
 
     process.on("uncaughtException", async(err) => {
-        console.log(err);
+        logger.error(err);
         process.exit(1);
     })
 };
 
 StartServer().then(() => {
-    console.log('Server catalog service nyala');
+    logger.info('Server catalog service nyala');
 })
