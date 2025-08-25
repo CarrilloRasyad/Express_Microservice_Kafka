@@ -19,11 +19,13 @@ Content-Type: "application/json"
     "price": 2000
 }
 
+@ORDER = http://localhost:9000/order
+
 ### GET DATA CART
 GET http://localhost:9000/cart
 
 ### POST DATA CART
-POST http://localhost:9000/cart
+POST {{ORDER}}/cart
 Content-Type: "application/json"
 
 {

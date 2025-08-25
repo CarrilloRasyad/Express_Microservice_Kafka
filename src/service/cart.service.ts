@@ -1,6 +1,7 @@
+import { CartRequestInput } from "../dto/cartRequest.do";
 import { CartRepositoryType } from "../types/repository.type";
 
-export const CreateCart = async (input: any, repo: CartRepositoryType) => {
+export const CreateCart = async (input: CartRequestInput, repo: CartRepositoryType) => {
     const data = await repo.create(input);
     return data;
 };
