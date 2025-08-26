@@ -4,7 +4,7 @@ import { logger } from './utils';
 const PORT = process.env.PORT || 3000;
 export const StartServer = async() => {
     expressApp.listen(PORT, () => {
-        logger.info(`Aplikasi berjalan di port: ${PORT}`);
+        logger.info(`Catalog Service running on port: ${PORT}`);
     });
 
     process.on("uncaughtException", async(err) => {
@@ -14,5 +14,5 @@ export const StartServer = async() => {
 };
 
 StartServer().then(() => {
-    logger.info('Server catalog service nyala');
+    logger.info('Server catalog on!');
 })
