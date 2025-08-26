@@ -1,7 +1,6 @@
 import { PrismaClient } from "../generated/prisma";
 import { ICatalogRepository } from "../interface/catalogRepository.interface";
 import { Product } from "../models/product.model";
-import { ProductFactory } from "../utils/fixtures";
 
 export class CatalogRepository implements ICatalogRepository {
 
