@@ -7,7 +7,7 @@ import { httpLogger, HandleErrorWithLogger } from "./utils";
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(httpLogger)
+app.use(httpLogger);
 
 app.use(orderRoutes);
 app.use(cartRoutes);
