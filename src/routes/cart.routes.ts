@@ -18,13 +18,13 @@ router.post(
             );
 
             if(error) {
-                return res.status(400).json({error});
+                return res.status(404).json({error});
             }
 
             const response = await service.CreateCart(req.body as CartRequestInput, repo);
             return res.status(201).json(response); 
         } catch (error) {
-            return res.status(400).json({ error});
+            return res.status(404).json({ error});
         }
     }
 );
