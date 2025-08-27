@@ -42,8 +42,13 @@ export const ValidateUser = async(token: string) => {
             },
         });
         console.log("response", response);
+
+        if(response.status !== 200) {
+            throw new AuthorizeError("user not authorized");
+        }
+
+        return response.data as User
     } catch (error) {
-        logger.error(error);
         throw new AuthorizeError("user not authorized")
     }
 }
