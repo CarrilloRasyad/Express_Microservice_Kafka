@@ -9,8 +9,8 @@ export const CartRequestSchema = Type.Object({
 export type CartRequestInput = Static<typeof CartRequestSchema>;
 
 export const CartEditRequestSchema = Type.Object({
-    customerId: Type.Integer(),
-    qty: Type.Integer()
+    id: Type.Integer(),
+    qty: Type.Integer(),
 });
 
 export type CartEditRequestInput = Static<typeof CartEditRequestSchema>;

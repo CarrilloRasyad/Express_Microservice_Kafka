@@ -10,4 +10,4 @@ export const carts = pgTable("carts", {
 });
 
 export type Cart = InferSelectModel<typeof carts>;
-// export type NewCart = InferInsertModel<typeof carts>;
+export type NewCart = InferInsertModel<typeof carts>;

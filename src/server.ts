@@ -15,4 +15,4 @@ export const StartServer = async() => {
 
 StartServer().then(() => {
     logger.info('Server order on!');
-})
+});

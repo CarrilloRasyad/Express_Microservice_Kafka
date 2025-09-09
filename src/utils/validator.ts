@@ -11,4 +11,4 @@ export const ValidateRequest = <T>(requestBody: unknown, schema: Schema) => {
 
     const errors = validatedData.errors?.map((err) => err.message);
     return errors && errors[0];
-}
+};
