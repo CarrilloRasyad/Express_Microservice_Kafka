@@ -1,5 +1,6 @@
 import { CartRequestInput } from "../dto/cartRequest.do";
-import { CartRepositoryType } from "../types/repository.type";
+// import { CartRepositoryType } from "../types/repository.type";
+import { CartRepositoryType } from "../repository/cart.repository";
 import { logger, NotFoundError } from "../utils";
 import { GetProductDetails } from "../utils/broker";
 
@@ -14,16 +15,16 @@ export const CreateCart = async (input: CartRequestInput, repo: CartRepositoryTy
 };
 
 export const GetCart = async (input: any, repo: CartRepositoryType) => {
-    const data = await repo.find(input);
+    const data = await repo.findCart(input);
     return data;
 };
 
 export const EditCart = async (input: any, repo: CartRepositoryType) => {
-    const data = await repo.update(input);
+    const data = await repo.updateCart(input.id, input.qty);
     return data;
 };
 
 export const DeleteCart = async (input: any, repo: CartRepositoryType) => {
-    const data = await repo.delete(input);
+    const data = await repo.deleteCart(input.id);
     return data;
 };
