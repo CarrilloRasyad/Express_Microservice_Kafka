@@ -3,9 +3,9 @@ import { APIError, AuthorizeError, NotFoundError } from '../error';
 import { logger } from '../logger';
 import { Product } from '../../dto/product.dto';
 
-const CATALOG_BASE_URL = process.env.CATALOG_BASE_URL || "http://localhost:8000";
+const CATALOG_BASE_URL = process.env.CATALOG_BASE_URL || "http://localhost:9001";
 
-// const AUTH_SERVICE_BASE_URL = process.env.AUTH_SERVICE_BASE_URL || "http://localhost:9002";
+// const AUTH_SERVICE_BASE_URL = process.env.AUTH_SERVICE_BASE_URL || "http://localhost:9000";
 
 export const GetProductDetails = async(productId: number) => {
 

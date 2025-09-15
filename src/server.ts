@@ -1,7 +1,7 @@
 import expressApp from './express-app';
 import { logger } from './utils';
 
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.APP_PORT;
 export const StartServer = async() => {
     expressApp.listen(PORT, () => {
         logger.info(`Order Service running on port: ${PORT}`);
