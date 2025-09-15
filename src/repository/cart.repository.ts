@@ -1,7 +1,8 @@
 import { eq } from "drizzle-orm";
 import { DB } from "../db/db.connection";
-import { CartLineItem, carts } from "../db/schema";
+import { CartLineItem, cartLineItems, carts } from "../db/schema";
 import { CartWithLineItems } from "../dto/cartRequest.do";
+import { NotFoundError } from "../utils";
 // import { drizzle } from 'drizzle-orm/node-postgres';
 
 // cart repo type
@@ -19,38 +20,57 @@ export type CartRepositoryType = {
 
 // Connect database with drizzle
 
-const createCart = async (input: any): Promise<{}> => {
+const createCart = async (customerId: number, {itemName, price, productId, qty, variant}: CartLineItem ): Promise<number> => {
     const result = await DB.insert(carts).values({
         customerId: 123
-    }).returning({ cartId: carts.id});
-
-    console.log(result);
-
-    return Promise.resolve({ 
-        message: "fake response create from cart repo",
-        input
+    }).returning().onConflictDoUpdate({
+        target: carts.customerId,
+        set: {updatedAt: new Date()},
     });
+
+    const [{ id }] = result;
+
+    if(id > 0) {
+        await DB.insert(cartLineItems).values({
+            cartId: id,
+            productId: productId,
+            itemName: itemName,
+            price: price,
+            qty: qty,
+            variant: variant
+        });
+    }
+    return id;
 };
 
-const findCart = async (input: any): Promise<{}> => {
-    return Promise.resolve({
-        message: "fake response get cart from repo",
-        input
+const findCart = async (id: number): Promise<CartWithLineItems> => {
+    const cart = await DB.query.carts.findFirst({
+        where: (carts, { eq }) => eq(carts.customerId, id),
+        with: {
+            lineItems: true,
+        },
     });
+
+    if(!cart) {
+        throw new NotFoundError("cart not found");
+    }
+    return cart;
 };
 
-const updateCart = async (input: any): Promise<{}> => {
-    return Promise.resolve({
-        message: "fake response update cart from repo",
-        input
-    });
+const updateCart = async (id: number, qty: number): Promise<CartLineItem> => {
+    const [cartLineItem] = await DB.update(cartLineItems)
+     .set({
+        qty: qty
+     })
+     .where(eq(cartLineItems.id, id))
+     .returning();
+    return cartLineItem;
 };
 
-const deleteCart = async (input:any): Promise<{}> => {
-    return Promise.resolve({
-        message: "fake response delete cart from repo",
-        input
-    });
+const deleteCart = async (id: number): Promise<boolean> => {
+    console.log("Proposed ID", id);
+    await DB.delete(cartLineItems).where(eq(cartLineItems.id, id)).returning();
+    return true;
 };
 
 const clearCartData = async(id: number): Promise<boolean> => {
@@ -58,9 +78,24 @@ const clearCartData = async(id: number): Promise<boolean> => {
     return true;
 }
 
+const findCartByProductId = async (customerId: number, productId: number): Promise<CartLineItem> => {
+    const cart = await DB.query.carts.findFirst({
+        where: (carts, {eq}) => eq(carts.customerId, customerId),
+        with: {
+            lineItems: true,
+        }
+    });
+
+    const lineItem = cart?.lineItems.find((item) => item.productId === productId);
+
+    return lineItem as CartLineItem;
+}
+
 export const CartRepository: CartRepositoryType = {
-    create: createCart,
-    find: findCart,
-    update: updateCart,
-    delete: deleteCart
+    createCart,
+    findCart,
+    updateCart,
+    deleteCart,
+    clearCartData,
+    findCartByProductId,
 };
