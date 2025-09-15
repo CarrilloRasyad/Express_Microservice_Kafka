@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StartServer = void 0;
 const expressApp_1 = __importDefault(require("./expressApp"));
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.APP_PORT || 8000;
 const StartServer = async () => {
     expressApp_1.default.listen(PORT, () => {
         console.log(`Aplikasi berjalan di port: ${PORT}`);

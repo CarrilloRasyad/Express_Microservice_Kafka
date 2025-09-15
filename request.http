@@ -1,4 +1,4 @@
-POST http://localhost:3000/products
+POST http://localhost:9001/products
 Content-Type: application/json
 
 {
@@ -8,13 +8,13 @@ Content-Type: application/json
     "stock": 10
 }
 ### GET PRODUCTS
-GET http://localhost:3000/products?limit=2&offset=0
+GET http://localhost:9001/products?limit=2&offset=0
 Content-Type: application/json
 ### GET PRODUCTS BY ID
-GET http://localhost:3000/products/2
+GET http://localhost:9001/products/2
 Content-Type: application/json
 ### PATCH PRODUCTS BY ID
-PATCH http://localhost:3000/products/2
+PATCH http://localhost:9001/products/2
 Content-Type: application/json
 
 {
@@ -22,5 +22,5 @@ Content-Type: application/json
     "stock": 100
 }
 ### DELETE PRODUCTS BY ID 
-DELETE http://localhost:3000/products/1
+DELETE http://localhost:9001/products/1
 Content-Type: application/json
