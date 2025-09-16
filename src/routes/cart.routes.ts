@@ -11,7 +11,6 @@ router.post(
     "/cart", 
     async(req: Request, res: Response, next: NextFunction) => {
         try {
-
             const error = ValidateRequest<CartRequestInput>(
                 req.body,
                 CartRequestSchema
@@ -21,7 +20,14 @@ router.post(
                 return res.status(404).json({error});
             }
 
-            const response = await service.CreateCart(req.body as CartRequestInput, repo);
+            const input: CartRequestInput = req.body;
+
+            const response = await service.CreateCart({
+                ...input,
+                customerId: ,
+            },
+            repo
+            );
             return res.status(201).json(response); 
         } catch (error) {
             return res.status(404).json({ error});

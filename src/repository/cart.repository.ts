@@ -22,7 +22,7 @@ export type CartRepositoryType = {
 
 const createCart = async (customerId: number, {itemName, price, productId, qty, variant}: CartLineItem ): Promise<number> => {
     const result = await DB.insert(carts).values({
-        customerId: 123
+        customerId: customerId
     }).returning().onConflictDoUpdate({
         target: carts.customerId,
         set: {updatedAt: new Date()},
