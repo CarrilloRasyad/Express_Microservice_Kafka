@@ -7,8 +7,18 @@ import { CartRequestInput, CartRequestSchema } from '../dto/cartRequest.do';
 const router = express.Router();
 const repo = repository.CartRepository;
 
+const authMiddleware = async(req: Request, res: Response, next: NextFunction) => {
+    const isValidUser = true;
+    if(!isValidUser) {
+        return res.status(403).json({ error: "Authorization error"});
+    }
+
+    next();
+};
+
 router.post(
-    "/cart", 
+    "/cart",
+    authMiddleware, 
     async(req: Request, res: Response, next: NextFunction) => {
         try {
             const error = ValidateRequest<CartRequestInput>(
@@ -22,11 +32,12 @@ router.post(
 
             const input: CartRequestInput = req.body;
 
-            const response = await service.CreateCart({
+            const response = await service.CreateCart(
+                {
                 ...input,
-                customerId: ,
-            },
-            repo
+                customerId: 1,
+                },
+                repo
             );
             return res.status(201).json(response); 
         } catch (error) {
@@ -38,23 +49,32 @@ router.post(
 router.get(
     "/cart",
     async(req: Request, res: Response, next: NextFunction) => {
-        const response = await service.GetCart(req.body, repo);
+        const response = await service.GetCart(req.body.customerId, repo);
         return res.status(200).json(response);
     }
 );
 
 router.patch(
-    "/cart/:id",
+    "/cart/:lineItemId",
     async(req: Request, res: Response, next: NextFunction) => {
-        const response = await service.EditCart(req.body, repo);
+        const lineItemId = req.params.lineItemId;
+        const response = await service.EditCart(
+            {
+                id: +lineItemId,
+                qty: req.body.qty,
+                // customerId: user.id,
+            }, 
+            repo
+        );
         return res.status(200).json(response);
     }
 );
 
 router.delete(
-    "/cart/:id",
+    "/cart/:lineItemId",
     async(req: Request, res: Response, next: NextFunction) => {
-        const response = await service.DeleteCart(req.body, repo);
+        const lineItemId = req.params.lineItemId;
+        const response = await service.DeleteCart(+lineItemId, repo);
         return res.status(200).json(response);
     }
 );

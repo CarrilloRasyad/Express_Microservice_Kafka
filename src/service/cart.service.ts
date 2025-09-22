@@ -71,14 +71,14 @@ const AuthorisedCart = async(lineItemId: number, customerId: number, repo: CartR
     return lineItem;
 }
 
-export const EditCart = async (input: CartEditRequestInput & {customerId: number}, repo: CartRepositoryType) => {
-    await AuthorisedCart(input.id, input.customerId, repo);
+export const EditCart = async (input: CartEditRequestInput, repo: CartRepositoryType) => {
+    // await AuthorisedCart(input.id, input.customerId, repo);
     const data = await repo.updateCart(input.id, input.qty);
     return data;
 };
 
-export const DeleteCart = async (input: {id: number; customerId: number}, repo: CartRepositoryType) => {
-    await AuthorisedCart(input.id, input.customerId, repo);
-    const data = await repo.deleteCart(input.id);
+export const DeleteCart = async (id: number, repo: CartRepositoryType) => {
+    // await AuthorisedCart(input.id, input.customerId, repo);
+    const data = await repo.deleteCart(id);
     return data;
 };
