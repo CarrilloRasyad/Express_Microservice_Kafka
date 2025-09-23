@@ -74,6 +74,7 @@ router.delete(
     "/cart/:lineItemId",
     async(req: Request, res: Response, next: NextFunction) => {
         const lineItemId = req.params.lineItemId;
+        console.log(lineItemId);
         const response = await service.DeleteCart(+lineItemId, repo);
         return res.status(200).json(response);
     }

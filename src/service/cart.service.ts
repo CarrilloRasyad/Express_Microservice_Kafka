@@ -32,30 +32,32 @@ export const CreateCart = async (input: CartRequestInput & {customerId: number},
 export const GetCart = async (id: number, repo: CartRepositoryType) => {
     const cart = await repo.findCart(id);
     if(!cart) {
-        throw new NotFoundError("cart does not exists!");
-    }
-    const lineItems = cart.lineItems;
-
-    if(!lineItems.length) {
-        throw new NotFoundError("cart items not found!");
-    }
-
-    const stockDetails = await GetStockDetails(
-        lineItems.map((item) => item.productId)
-    );
-
-    if(Array.isArray(stockDetails)) {
-        lineItems.forEach((lineItem) => {
-            const stockItem = stockDetails.find(
-                (stock) => stock.id === lineItem.productId
-            );
-            if(stockItem) {
-                lineItem.availability = stockItem.stock;
-            }
-        });
-        cart.lineItems = lineItems;
+        throw new NotFoundError("cart does not found!");
     }
     return cart;
+
+//     const lineItems = cart.lineItems;
+
+//     if(!lineItems.length) {
+//         throw new NotFoundError("cart items not found!");
+//     }
+
+//     const stockDetails = await GetStockDetails(
+//         lineItems.map((item) => item.productId)
+//     );
+
+//     if(Array.isArray(stockDetails)) {
+//         lineItems.forEach((lineItem) => {
+//             const stockItem = stockDetails.find(
+//                 (stock) => stock.id === lineItem.productId
+//             );
+//             if(stockItem) {
+//                 lineItem.availability = stockItem.stock;
+//             }
+//         });
+//         cart.lineItems = lineItems;
+//     }
+//     return cart;
 };
 
 const AuthorisedCart = async(lineItemId: number, customerId: number, repo: CartRepositoryType) => {
