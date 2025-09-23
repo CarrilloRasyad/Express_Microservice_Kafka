@@ -6,7 +6,7 @@ export enum OrderEvent {
 export type TOPIC_TYPE = "OrderEvents" | "CatalogEvents";
 
 export interface MessageType {
-    header?: Record<string, any>,
+    headers?: Record<string, any>,
     event: OrderEvent,
     data: Record<string, any>;
 }
