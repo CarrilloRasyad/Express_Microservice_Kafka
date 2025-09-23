@@ -25,6 +25,7 @@ const createTopic = async(topic: string[]) => {
     const admin = kafka.admin();
     await admin.connect();
     const topicExists = await admin.listTopics();
+    console.log("topicExists", topicExists);
 
     for(const t of topics) {
         if(!topicExists.includes(t.topic)) {
