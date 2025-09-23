@@ -18,7 +18,7 @@ let consumer: Consumer;
 const createTopic = async(topic: string[]) => {
     const topics = topic.map((t) => ({
         topic: t,
-        numPartition: 2,
+        numPartitions: 2,
         replicationFactor: 1
     }));
 
@@ -41,6 +41,7 @@ const connectProducer = async <T>(): Promise<T> => {
     await createTopic(["OrderEvents"]);
 
     if(!producer) {
+        console.log("producer already connect with existing connection");
         producer = kafka.producer();
     }
 
@@ -59,15 +60,15 @@ const disconnectProducer = async(): Promise<void> => {
     }
 };
 
-export const publish = async (data: PublishType): Promise<boolean> => {
+const publish = async (data: PublishType): Promise<boolean> => {
     const producer = await connectProducer<Producer>();
     const result = await producer.send({
         topic: data.topic,
         messages: [
             {
-            headers: data.headers,
-            key: data.event,
-            value: JSON.stringify(data.message)
+                headers: data.headers,
+                key: data.event,
+                value: JSON.stringify(data.message),
             },
         ],
     });
@@ -94,7 +95,7 @@ const disconnectConsumer =  async(): Promise<void> => {
     }
 };
 
-const subscribe = async(messageHandler: MessageHandler, topic: TOPIC_TYPE):Promise<void> => {
+const subscribe = async(messageHandler: MessageHandler, topic: TOPIC_TYPE): Promise<void> => {
     const consumer = await connectConsumer<Consumer>();
     await consumer.subscribe({topic: topic, fromBeginning: true});
 
@@ -126,5 +127,5 @@ export const MessageBroker: MessageBrokerType = {
     publish,
     connectConsumer,
     disconnectConsumer,
-    subscribe
-}
+    subscribe,
+};
