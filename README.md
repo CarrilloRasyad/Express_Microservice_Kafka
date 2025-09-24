@@ -1,6 +1,6 @@
 ## RUN SERVER
 - npm start
-- Server running on port 3000 (you can change the configuration in server.ts)
+- Server running on port 9001 (you can change the configuration in server.ts)
 
 ## TESTING WITH JEST
 - npm test
