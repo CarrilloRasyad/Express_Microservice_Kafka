@@ -1,4 +1,4 @@
-## RUN SERVER
+![foto simple flow cart](https://github.com/user-attachments/assets/496cc48d-3d94-489c-82d9-def9e6f27b71)## RUN SERVER
 - npm start
 - Server running on port 9000 (you can change the configuration in server.ts)
 
@@ -30,3 +30,9 @@
 ## USE CASE CATALOG SERVICE AND ORDER SERVICE
 
 ![use case catalog dan order](https://github.com/user-attachments/assets/19a0ed21-960e-4f08-a053-d8ebc8ddc463)
+
+## SIMPLE FLOW CART 
+
+![foto simple flow cart](https://github.com/user-attachments/assets/c0563c54-366e-4ba6-84e1-97ae26eebc3b)
+
+
