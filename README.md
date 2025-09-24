@@ -1,4 +1,4 @@
-![foto simple flow cart](https://github.com/user-attachments/assets/496cc48d-3d94-489c-82d9-def9e6f27b71)## RUN SERVER
+## RUN SERVER
 - npm start
 - Server running on port 9000 (you can change the configuration in server.ts)
 
