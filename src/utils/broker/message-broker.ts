@@ -4,7 +4,7 @@ import { MessageBrokerType, MessageHandler, PublishType } from "./broker.type";
 
 const CLIENT_ID = process.env.CLIENT_ID || "order-service";
 const GROUP_ID = process.env.GROUP_ID || "order-service-group";
-const BROKERS = [process.env.BROKERS_1 || "http://localhost:9092"];
+const BROKERS = [process.env.BROKERS_1 || "localhost:9092"];
 
 const kafka = new Kafka({
     clientId: CLIENT_ID,
@@ -19,7 +19,7 @@ const createTopic = async(topic: string[]) => {
     const topics = topic.map((t) => ({
         topic: t,
         numPartitions: 2,
-        replicationFactor: 1
+        replicationFactor: 1,
     }));
 
     const admin = kafka.admin();
