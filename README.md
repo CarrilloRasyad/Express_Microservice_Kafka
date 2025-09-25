@@ -24,6 +24,9 @@
 - npm i drizzle-orm pg dotenv
 - npm i -D drizzle-kit tsx @types/pg
 
+## INSTALL KAFKAJS
+- npm install kafkajs
+
 ## FLOW PENGERJAAN PROJECT
 
 ![flows projects](https://github.com/user-attachments/assets/fcd14865-afaf-4d4c-9915-4db50ce352b1)
