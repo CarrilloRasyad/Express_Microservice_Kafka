@@ -3,3 +3,7 @@
 
 ## RUN SERVER
 - npm run dev (run local on port 9000)
+
+## INSTALL NODEMON
+- npm install nodemon --save-dev
+
