@@ -1,5 +1,6 @@
 ## RUN SERVER
 - npm start
+- npm run dev (run local)
 - Server running on port 9002 (you can change the configuration in server.ts)
 
 ## INSTALL CORS FOR ROUTE
