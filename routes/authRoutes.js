@@ -9,7 +9,8 @@ const router = express.Router();
 
 const generateToken = (user) => {
     return jwt.sign(user, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN,
+        // expiresIn: process.env.JWT_EXPIRES_IN,
+        expiresIn: '1h'
     });
 };
 
@@ -23,7 +24,7 @@ router.post(
     ]);
 
     if(userExists) {
-        return res.status(401).json({message: "user already exists"});
+        return res.status(400).json({message: "user already exists"});
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -62,4 +63,23 @@ router.post(
         
     }
 );
+
+router.get(
+"/validate", 
+    async(req, res) => {
+        const token = req.headers["authorization"];
+        if(!token) {
+            return res.status(403).json({message: "UnAuthorized"});
+        }
+        try {
+            const tokenData = token.split(" ") [1];
+            const user = jwt.verify(tokenData, process.env.JWT_SECRET);
+            return res.status(200).json({...user});
+        } catch (error) {
+            return res.status(403).json({message: "Invalid token"});
+        }
+    }    
+);
+
+module.exports(router);
 
