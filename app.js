@@ -10,5 +10,5 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 
 app.listen(PORT, () => {
-    console.log(`App running on port:, ${PORT}`);
+    console.log(`App running on port: ${PORT}`);
 });
