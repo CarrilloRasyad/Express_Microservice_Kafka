@@ -10,13 +10,13 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "3.1.10"
   },
   "dependencies": {
-    "bcryptjs": "^3.0.2",
-    "dotenv": "^17.2.2",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "pg": "^8.16.3"
+    "bcryptjs": "3.0.2",
+    "dotenv": "17.2.2",
+    "express": "5.1.0",
+    "jsonwebtoken": "9.0.2",
+    "pg": "8.16.3"
   }
 }
