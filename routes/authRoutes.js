@@ -22,7 +22,7 @@ router.post(
         email,
     ]);
 
-    if(userExists) {
+    if(userExists.rows.length > 0) {
         return res.status(400).json({message: "user already exists"});
     }
 
