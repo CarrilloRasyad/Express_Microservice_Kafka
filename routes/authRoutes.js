@@ -22,12 +22,22 @@ router.post(
         username,
     ]);
 
+    // Rekomendasi menggunakan libarary Joi untuk validasi.
+
     if(!email.includes('@') || !email.includes('.')) {
         return res.status(400).json({ message: "Invalid email format"});
     }
 
     if(usernameExists.rows.length > 0) {
         return res.status(400).json({ message: "username already exists"});
+    }
+
+    if(username.length < 3) {
+        return res.status(400).json({message: "username too short"});
+    }
+
+    if(!username) {
+        return res.status(400).json({message: "username is required"});
     }
 
     const emailExists = await db.query("SELECT * FROM users WHERE email = $1", [
@@ -59,6 +69,14 @@ router.post(
         const user = await db.query("SELECT * FROM users where email = $1", [
             email
         ]);
+
+        // if(!email.includes('@') || !email.includes('.')) {
+        //     return res.status(400).json({message: "Invalid email format"});
+        // }
+
+        // if(password.length < 6) {
+        //     return res.status(400).json({message: "Incorrect Password"});
+        // }
 
         if(user.rows.length === 0) {
             return res.status(404).json({ message: "users not found" });
