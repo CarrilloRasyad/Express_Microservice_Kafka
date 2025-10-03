@@ -18,20 +18,24 @@ router.post(
     async(req, res) => {
     const {username, email, password} = req.body;
 
-    const emailExists = await db.query("SELECT * FROM users where username = $1", [
+    const usernameExists = await db.query("SELECT * FROM users where username = $1", [
         username,
     ]);
 
-    if(emailExists.rows.length > 0) {
+    if(usernameExists.rows.length > 0) {
         return res.status(400).json({ message: "username already exists"});
     }
 
-    const userExists = await db.query("SELECT * FROM users WHERE email = $1", [
+    const emailExists = await db.query("SELECT * FROM users WHERE email = $1", [
         email,
     ]);
 
-    if(userExists.rows.length > 0) {
+    if(emailExists.rows.length > 0) {
         return res.status(400).json({message: "user already exists"});
+    }
+
+    if(password.length < 6) {
+        return res.status(400).json({message: "password must be at least 6 character long"})
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
