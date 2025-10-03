@@ -22,6 +22,10 @@ router.post(
         username,
     ]);
 
+    if(!email.includes('@') || !email.includes('.')) {
+        return res.status(400).json({ message: "Invalid email format"});
+    }
+
     if(usernameExists.rows.length > 0) {
         return res.status(400).json({ message: "username already exists"});
     }
