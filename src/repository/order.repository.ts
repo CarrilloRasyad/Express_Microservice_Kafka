@@ -1,4 +1,6 @@
 import { DB } from "../db/db.connection"; 
+import { orderLineItems, orders } from "../db/schema/order";
+import { OrderWithLineItems } from "../dto/orderRequest.dto";
 
 export type OrderRepositoryType = {
     createOrder: (lineItem: OrderWithLineItems) => Promise<number>;
@@ -68,7 +70,7 @@ const deleteOrder = async(id: number): Promise<boolean> => {
     return true;
 };
 
-const findOrderByCustomerId = async (customerId: number): Promise<OredrWithLineItems[]> => {
+const findOrderByCustomerId = async (customerId: number): Promise<OrderWithLineItems[]> => {
     const order = await DB.query.orders.findMany({
         where: (orders, {eq}) => eq(orders.customerId, customerId),
         with: {
