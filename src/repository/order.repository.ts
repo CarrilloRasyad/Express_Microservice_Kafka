@@ -1,6 +1,7 @@
 import { DB } from "../db/db.connection"; 
-import { orderLineItems, orders } from "../db/schema/order";
+import { orderLineItems, orders } from "../db/schema";
 import { OrderWithLineItems } from "../dto/orderRequest.dto";
+import { eq } from "drizzle-orm";
 
 export type OrderRepositoryType = {
     createOrder: (lineItem: OrderWithLineItems) => Promise<number>;
