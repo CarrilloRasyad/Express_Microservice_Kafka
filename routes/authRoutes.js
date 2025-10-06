@@ -49,7 +49,7 @@ router.post(
     }
 
     if(password.length < 6) {
-        return res.status(400).json({message: "password must be at least 6 character long"})
+        return res.status(400).json({message: "password must be at least 6 character long"});
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -69,14 +69,6 @@ router.post(
         const user = await db.query("SELECT * FROM users where email = $1", [
             email
         ]);
-
-        // if(!email.includes('@') || !email.includes('.')) {
-        //     return res.status(400).json({message: "Invalid email format"});
-        // }
-
-        // if(password.length < 6) {
-        //     return res.status(400).json({message: "Incorrect Password"});
-        // }
 
         if(user.rows.length === 0) {
             return res.status(404).json({ message: "users not found" });
