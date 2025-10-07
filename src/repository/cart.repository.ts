@@ -3,7 +3,6 @@ import { DB } from "../db/db.connection";
 import { CartLineItem, cartLineItems, carts } from "../db/schema";
 import { CartWithLineItems } from "../dto/cartRequest.do";
 import { NotFoundError } from "../utils";
-// import { drizzle } from 'drizzle-orm/node-postgres';
 
 // cart repo type
 export type CartRepositoryType = {

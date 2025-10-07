@@ -9,6 +9,7 @@ export const RequestAuthorizer = async(req: Request, res: Response, next: NextFu
         }
         const userData = await ValidateUser(req.headers.authorization as string);
         req.user = userData;
+        next();
     } catch (error) {
         console.log("error", error);
         return res.status(401).json({ error});
