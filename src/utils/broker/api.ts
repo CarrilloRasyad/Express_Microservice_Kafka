@@ -33,7 +33,7 @@ export const GetStockDetails = async(ids: number[]) => {
         logger.error(error);
         throw new NotFoundError("error on getting stock details");     
     }
-}
+};
 
 export const ValidateUser = async(token: string) => {
     try {
@@ -55,4 +55,4 @@ export const ValidateUser = async(token: string) => {
     } catch (error) {
         throw new AuthorizeError("user not authorised");
     }
-}
+};
