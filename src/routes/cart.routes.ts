@@ -8,15 +8,6 @@ import { RequestAuthorizer } from './middleware';
 const router = express.Router();
 const repo = repository.CartRepository;
 
-// const authMiddleware = async(req: Request, res: Response, next: NextFunction) => {
-//     const isValidUser = true;
-//     if(!isValidUser) {
-//         return res.status(403).json({ error: "Authorization error"});
-//     }
-
-//     next();
-// };
-
 router.post(
     "/cart",
     RequestAuthorizer, 
@@ -108,7 +99,7 @@ router.delete(
             }
             const lineItemId = req.params.lineItemId;
             console.log(lineItemId);
-            const response = await service.DeleteCart({customerId: user.id, id: +lineItemId}, repo);
+            const response = await service.DeleteCart({id: +lineItemId, customerId: user.id}, repo);
             return res.status(200).json(response);
         } catch (error) {
             next(error);
