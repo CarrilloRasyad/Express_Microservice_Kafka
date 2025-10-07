@@ -6,7 +6,6 @@ import { CreateProductRequest, UpdateProductRequest } from '../dto/product.dto';
 
 // clean code, dan lebih bagus menggunakan method Router dari express
 const router = express.Router();
-// const app = express();
 
 
 export const catalogService = new CatalogService( new CatalogRepository() )
