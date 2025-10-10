@@ -72,7 +72,7 @@ const deleteOrder = async(id: number): Promise<boolean> => {
 };
 
 const findOrderByCustomerId = async (customerId: number): Promise<OrderWithLineItems[]> => {
-    const order = await DB.query.orders.findMany({
+    const orders = await DB.query.orders.findMany({
         where: (orders, {eq}) => eq(orders.customerId, customerId),
         with: {
             lineItems: true

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { APIError, AuthorizeError, NotFoundError } from '../error';
+import { AuthorizeError, NotFoundError } from '../error';
 import { logger } from '../logger';
 import { Product } from '../../dto/product.dto';
 import { User } from '../../dto/User.Model';

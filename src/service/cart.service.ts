@@ -74,7 +74,7 @@ const AuthorisedCart = async(lineItemId: number, customerId: number, repo: CartR
 
 export const EditCart = async (input: CartEditRequestInput & {customerId: number}, repo: CartRepositoryType) => {
     await AuthorisedCart(input.id, input.customerId, repo);
-    const data = await repo.updateCart(input.id, input.customerId);
+    const data = await repo.updateCart(input.id, input.qty);
     return data;
 };
 

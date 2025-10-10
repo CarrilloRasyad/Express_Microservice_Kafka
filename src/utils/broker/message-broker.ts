@@ -8,8 +8,8 @@ const BROKERS = [process.env.BROKERS_1 || "localhost:9092"];
 
 const kafka = new Kafka({
     clientId: CLIENT_ID,
-    logLevel: logLevel.INFO,
     brokers: BROKERS,
+    logLevel: logLevel.INFO,
 });
 
 let producer: Producer;
@@ -40,9 +40,10 @@ const createTopic = async(topic: string[]) => {
 const connectProducer = async <T>(): Promise<T> => {
     await createTopic(["OrderEvents"]);
 
-    if(!producer) {
+    if(producer) {
         console.log("producer already connect with existing connection");
-        producer = kafka.producer();
+        // producer = kafka.producer();
+        return producer as unknown as T;
     }
 
     producer = kafka.producer({
