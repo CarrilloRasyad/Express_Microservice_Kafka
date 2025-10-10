@@ -28,9 +28,10 @@ export const HandleErrorWithLogger = (
    );
 
    if (reportError) {
+      // error reporting tools implementation eg: CloudWatch, Sentry, etc.
       logger.error(error);
    } else {
-      logger.warn(error);
+      logger.warn(error); // ignore common errors caused by user
    }
 
    return res.status(status).json(data);
@@ -39,8 +40,8 @@ export const HandleErrorWithLogger = (
 export const HandleUnCaughtException = async (
    error: Error,
 ) => {
-
+   // error report / monitoring tools
    logger.error(error);
-
+   // recover
    process.exit(1);
 };
