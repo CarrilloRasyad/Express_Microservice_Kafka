@@ -24,8 +24,8 @@ router.post("/products",
             const err =  error as Error;
             return res.status(500).json(err.message);
         }
-
-});
+    }
+);
 
 router.patch("/products/:id", 
     async(req: Request, res: Response, next: NextFunction) => {
@@ -46,7 +46,8 @@ router.patch("/products/:id",
             const err = error as Error;
             return res.status(500).json(err.message);
         }
-});
+    }
+);
 
 router.get("/products", 
     async(req: Request, res: Response, next: NextFunction) => {
@@ -73,7 +74,8 @@ router.get("/products/:id",
             // return res.status(500).json(err.message);
             return next(error);
         }   
-});
+    }
+);
 
 router.delete("/products/:id", 
     async(req: Request, res: Response, next: NextFunction) => {
@@ -85,6 +87,7 @@ router.delete("/products/:id",
             const err = error as Error;
             return res.status(500).json(err.message);
         }
-});
+    }
+);
 
 export default router;
