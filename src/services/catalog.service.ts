@@ -36,7 +36,15 @@ export class CatalogService {
     }
 
     async deleteProduct(id: number) {
-        const product = await this._repository.delete(id);
-        return product;
+        const response = await this._repository.delete(id);
+        return response;
+    }
+
+    async getProductStock(ids: number[]) {
+        const products =  await this._repository.findStock(ids);
+        if(!products) {
+            throw new Error("Product not found");
+        }
+        return products;
     }
 }
