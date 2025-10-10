@@ -11,9 +11,6 @@ export class CatalogRepository implements ICatalogRepository {
         this._prisma = new PrismaClient();
     }
 
-    async findStock(ids: number): Promise<Product[]> {
-        throw new Error("Method not implemented.");
-    }
     async create(data: Product): Promise<Product> {
         return this._prisma.product.create({
             data,
@@ -25,9 +22,9 @@ export class CatalogRepository implements ICatalogRepository {
             data: data,
         });
     }
-    async delete(id: any): Promise<{}> {
+    async delete(id: any) {
         return this._prisma.product.delete({
-            where: {id},
+            where: { id },
         });
     }
     async find(limit: number, offset: number): Promise<Product[]> {
@@ -47,5 +44,13 @@ export class CatalogRepository implements ICatalogRepository {
 
         throw new NotFoundError("product not found");
     }
-    
+    findStock(ids: number[]): Promise<Product[]> {
+        return this._prisma.product.findMany({
+            where: {
+                id: {
+                    in: ids,
+                },
+            },
+        });
+    }
 }
