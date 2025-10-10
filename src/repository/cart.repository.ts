@@ -82,7 +82,7 @@ const findCartByProductId = async (customerId: number, productId: number): Promi
         where: (carts, {eq}) => eq(carts.customerId, customerId),
         with: {
             lineItems: true,
-        }
+        },
     });
 
     const lineItem = cart?.lineItems.find((item) => item.productId === productId);
