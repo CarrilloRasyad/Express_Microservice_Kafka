@@ -27,6 +27,19 @@
 ## INSTALL KAFKAJS
 - npm install kafkajs
 
+## MIGRATION WITH DRIZZLE ORM
+- drizzle-kit migrate
+- drizzle-kit generate
+- drizzle-kit push
+- drizzle-kit pull
+(note: you can setup this migration in scripts of package.json file)
+
+## SET UP THE MIGRATION IN SCRIPTS OF PACKAGE.JSON FILE
+- "db:generate": "drizzle-kit generate",
+- "db:push": "drizzle-kit push",
+- "db:migrate": "tsx ./migration.ts",
+- "db:studio": "drizzle-kit studio --port 6000"
+
 ## FLOW PENGERJAAN PROJECT
 
 ![flows projects](https://github.com/user-attachments/assets/fcd14865-afaf-4d4c-9915-4db50ce352b1)
