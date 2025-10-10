@@ -13,7 +13,7 @@ export class MockCatalogRepository implements ICatalogRepository {
     update(data: Product): Promise<Product> {
         return Promise.resolve(data as unknown as Product);
     }
-    delete(id: any): Promise<{}> {
+    delete(id: any){
         return Promise.resolve(id);
     }
     find(limit: number, offset: number): Promise<Product[]> {
@@ -22,8 +22,8 @@ export class MockCatalogRepository implements ICatalogRepository {
     findOne(id: number): Promise<Product> {
         return Promise.resolve({id} as unknown as Product);
     }
-    findStock(ids: number): Promise<Product[]> {
-        throw new Error("Method not implemented.");
+    findStock(ids: number[]): Promise<Product[]> {
+        return Promise.resolve([]);
     }
 
 }
